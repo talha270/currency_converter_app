@@ -32,7 +32,7 @@ class Homepagestate extends State<Homepage>{
     return Scaffold(
       appBar: AppBar(
         elevation: 2,
-        title: const Text("Curreny Converter App"),
+        title: const Text("Currency Converter App"),
         centerTitle: true,
       ),
       body: Container(
@@ -56,7 +56,7 @@ class Homepagestate extends State<Homepage>{
                           future: allcurrencies,
                           builder: (context, currsnapshot) {
                             if(snapshot.connectionState==ConnectionState.waiting){
-                              return const Center(child: CircularProgressIndicator(),);
+                              return Expanded(child: const Center(child: CircularProgressIndicator(),));
                             }
                             else if(currsnapshot.hasData){
                               return Column(
@@ -69,7 +69,7 @@ class Homepagestate extends State<Homepage>{
                               );
                             }
                             else{
-                              return const Center(child: CircularProgressIndicator(),);
+                              return Expanded(child: const Center(child: CircularProgressIndicator(),));
                             }
                           },);
                     },),
